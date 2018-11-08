@@ -2,7 +2,8 @@ FROM centos:7
 
 COPY filebrowser .
 EXPOSE 8080
+ENV CONFIG=/config/filebrowser.json
 
 USER 1001
 
-ENTRYPOINT [ "sh", "-c", "/filebrowser", "--config", "/config/filebrowser.json" ]
+CMD [ "sh", "-c", "/filebrowser", "--config", "${CONFIG}" ]
